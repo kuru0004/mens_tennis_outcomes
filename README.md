@@ -3,6 +3,7 @@ This project aims to predict win probability for one player of professional mens
 This proposal attempts to broaden the work done thus far, and would need to achieve accuracies in 60-70% range to be useful.  The predictors (features) that were found to be useful (especially relative rankings of the players) will be preserved, while considering other features not addressed by all models.  A pair of examples are as follows:
 1. Player having early exits from more than one previous tournament
 2. Weighting recent result less strongly than the exponential drop-off of one previous model, perhaps with a power law.
+
 The most significant departure from existing model that this proposal will consider is using tree-based models (Random Forests and Boosted Trees).  Boosted trees have been shown to have high performance in other arenas, such as Kaggle competitions.
 
 If this work is successful, the biggest economic impact would be in contributing to gambling and betting lines.  As suggested by Kovalchik (2016), it also could be useful for sports analysts and coaches. Both may gain insight into what makes one player more probable to win than another, where coaches may be able to use that information to benefit a player.
