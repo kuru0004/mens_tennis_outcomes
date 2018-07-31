@@ -11,6 +11,7 @@ The following is the anticipated workflow and output of this project.  The data 
 The potential issues with this project anticipated thus far are as follows:
 * Finding that some of the features desired are not present
 * Making sure that the model only uses past data for any given match
+
 In the first case, the sources of data were examined to take rich information from existing sources, including player characteristics and match characteristics.  In the second case, the plan is to set up directories segregating information and labeling them so the time frames are clear.
 
 
