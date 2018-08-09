@@ -5,7 +5,10 @@ import matplotlib.pyplot as plt
 
 def read2000sMatches(dirname):
 	"""
-	
+	Inputs: folder (directory) name, str
+	Outputs the  
+
+	Takes csv files from directory
 	"""
     allFiles = glob.glob(dirname + "/atp_matches_2" + "*.csv")
     matches = pd.DataFrame()
@@ -33,4 +36,8 @@ def read1900sMatches(dirname):
         list_.append(df)
     matches = pd.concat(list_)
     return matches
+
+
+if __name__ == '__main__':
+	main()
 
