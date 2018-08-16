@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt 
 #needed for Jupyter Notebook, if want plots to show inline
 
 
@@ -81,6 +80,14 @@ df_loss = df_stats[['tourney_id','match_num','tourney_name', 'surface', 'draw_si
        'loser_age', 'loser_rank', 'loser_rank_points','l_ace', 'l_df',
        'l_svpt', 'l_1stIn', 'l_1stWon', 'l_2ndWon', 'l_SvGms', 'l_bpSaved',
        'l_bpFaced']]
+
+df_win.columns = [s.replace("winner_", "") for s in df_win.columns]
+df_win.columns = [s.replace("w_", "") for s in df_win.columns]
+df_loss.columns = [s.replace("loser_", "") for s in df_win.columns]
+df_loss.columns = [s.replace("l_", "") for s in df_win.columns]
+
+df_win['target']=1
+df_loss['target']=0
 
 df_win_loss = pd.concat([df_win,df_loss])
 
