@@ -228,10 +228,10 @@ gbr_train_df = train_computed_df.drop(['name','tourney_date','match_num'],axis=1
 gbr_test_df = test_computed_df.drop(['name','tourney_date','match_num'],axis=1)
 
 
-params = {'n_estimators': [180,200,500],
+params = {'n_estimators': [500, 5000,500000],
           'max_features': [.1,.3,.4],
           'max_depth': [2,3,4],
-          'learning_rate': [0.0001,.0005,.001]}
+          'learning_rate': [0.00001,0.0001,.0005]}
 gbr = GradientBoostingClassifier()
 gs = GridSearchCV(gbr, params, scoring='accuracy')
 gs.fit(gbr_train_df.drop('target',axis=1), gbr_train_df['target'])
@@ -239,7 +239,10 @@ gs.fit(gbr_train_df.drop('target',axis=1), gbr_train_df['target'])
 print('Best Params for Gradient Boosting are: ')
 print(gs.best_params_)
 
-gbr_tuney_model = GradientBoostingClassifier(gs.best_params_)
+gbr_tuney_model = GradientBoostingClassifier(n_estimators=gs.best_params_['n_estimators'], \
+	max_features=gs.best_params_['max_features'],\
+	max_depth=gs.best_params_['max_depth'],\
+	learning_rate=gs.best_params_['learning_rate'])
 gbr_tuney_model.fit(gbr_train_df.drop('target',axis=1), gbr_train_df['target'])
 # score from training data: 
 print('score for Gradient Boosting (training) are: ')
