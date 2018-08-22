@@ -9,7 +9,7 @@ The biggest economic impact of accurate predictions is contributing to gambling 
 
 # Procedures followed
 
-The project uses data gathered by Jeff Sackmann at [Tennis Abstract](http://www.tennisabstract.com/). It was available on GitHub in the [atp_mens__tennis repo](link).  Each row of data is for a particular match and each column contains the factors (features) of the match.  The features are of three types:
+The project uses data gathered by Jeff Sackmann at [Tennis Abstract](http://www.tennisabstract.com/). It was available on GitHub in the [tennis_atp repo](https://github.com/JeffSackmann/tennis_atp).  Each row of data is for a particular match and each column contains the factors (features) of the match.  The features are of three types:
 * Tournament features: Tournament ID, Date, Playing Surface, etc.
 * Players features: Height, Age, Handedness
 * Match features: Aces, Double Faults, etc.
@@ -22,11 +22,11 @@ For the first issue, data needs separated into data for the winner and data for 
 
 ## Feature engineering
 
-_Feature engineering_ refers to the process of modifying the feature space (adding, removing, or transforming features) for the purpose of making them more predictive.  Feature engineering for the two steps mentioned above were accomplished using the following procedure.
+_Feature engineering_ refers to the process of modifying the feature space (adding, removing, or transforming features) for the purpose of making them more predictive.  Feature engineering for the two steps mentioned above were accomplished using the following procedures.
 
-The dataset was first paritioned into two sets, one for the winner and one for the loser. The feature names (i.e. column labels) were then matched when appropriate (e.g. "Winner Aces" and "Loser Aces" to "Aces").  A new column is added, with label "1" ascribed to the winner data and "0" ascribed to the loser data.  The next step is concatenating the two resultant datasets to make one large dataframe. This accomplishes the first step needed: each row is associated with a unique target.
+The dataset was first paritioned into two sets, one for the winner and one for the loser. The feature names (i.e. column labels) were then matched when appropriate (e.g. "Winner Aces" and "Loser Aces" to "Aces").  A new column is added, with label "1" ascribed to the winner data and "0" ascribed to the loser data.  The next step is concatenating the two resultant datasets to make one large dataframe. This accomplishes the first step needed: each row is associated with a unique target. This step has the 
 
-The second step involves generating the statistics of interest for a particular match. Since one only has access to _past_ data, some form of past data is needed. In the project, data for any match were generated for the _players in the match_ from the past _one year_ of matches that player played. This was done using rolling average in pandas
+The second step involves generating the statistics of interest for a particular match. Since one only has access to _past_ data, some form of data from _previous matches_ is needed. In the project, data for any match were generated for the _players in the match_ from the past _one year_ of matches that the player played. This was done using rolling average in pandas, with the .rolling() DataFrame method.
 
  
 
@@ -42,7 +42,7 @@ Random forests: 60%
 
 ## Results and Discussion
 
-The results of this two-week project yielded an accuracy of 60%.  All three models are within 1% (!!need to check!!) of this value. Accuracy is an acceptable metric since this is an eminently balanced class problem: For every winner, there is a loser
+The results of this two-week project yielded an accuracy of 60%.  All three models are within 1% (!!need to check!!) of this value. Accuracy is an acceptable metric since this is an eminently balanced class problem: For every winner, there is a loser.
 
 Interestingly, all three models considered here yielded very similar accuracy using the same features. For the two tree-based methods, the hyper-parameters were tuned.  It is likely that the Random Forest model is nearly optimally tuned, but the Gradient-boosted Tree models may benefit from additional tuning.
 
