@@ -20,7 +20,7 @@ Two challenges in this gathered data are as follows:
 
 For the first issue, data needs separated into data for the winner and data for the loser.  For the second issue, the _match features_ are considered important to making a more accurate prediction. Thus, a method to populate these features is required.
 
-## Feature engineering
+### Feature engineering
 
 _Feature engineering_ refers to the process of modifying the feature space (adding, removing, or transforming features) for the purpose of making them more predictive.  Feature engineering for the two steps mentioned above were accomplished using the following procedures.
 
@@ -30,26 +30,29 @@ The second step involves generating the statistics of interest for a particular 
 
  
 
-## Logistic regression
+### Models Used
 
-Logistic regression: 60%
-## Random Forest
+The models used were logistic regression, random forests, and gradient-boosted trees.  To make as direct a comparison between the models, the same features were used in the analysis. 
 
-Random forests: 60%
-## Gradient-Boosted Trees
+The list of features used is as follows:
+
+
 
 
 
 ## Results and Discussion
 
-The results of this two-week project yielded an accuracy of 60%.  All three models are within 1% (!!need to check!!) of this value. Accuracy is an acceptable metric since this is an eminently balanced class problem: For every winner, there is a loser.
+The results of this two-week project yielded an accuracy of 60%.  All three models are within 1% of this value. Accuracy is an acceptable metric since this is an eminently balanced class problem: For every winner, there is a loser.
 
 Interestingly, all three models considered here yielded very similar accuracy using the same features. For the two tree-based methods, the hyper-parameters were tuned.  It is likely that the Random Forest model is nearly optimally tuned, but the Gradient-boosted Tree models may benefit from additional tuning.
 
 
 # Further Investigation 
 
-Several avenues for 
+Several avenues for further investigation exist:
+1. Considering a simpler model, so that there is no need for computing statistics from previous matches.
+2. Using clustering to group players to determine a style and utilize these groups to make better predictions. 
+3. Distributing the statistics over the surfaces (eg. aces on grass) because I have a difficult time believing the results that surface is not a major predictor.
 
 
 # Reference Cited :
