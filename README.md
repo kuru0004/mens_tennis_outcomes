@@ -1,21 +1,59 @@
-This project aims to predict win probability for one player of professional mens tennis singles match on the ATP Tour.  There have been several models developed for this purpose in the past (The review by Kovalchik (2016) has an excellent comparison and discussion of the models). Some have used regression ('logit' or 'probit') methods, whereas others have predicted winners based on point-by-point outcome probabilities.  One of the best methods comes from FiveThirtyEight, resulting in an accuracy of 70%.  This method uses a pair comparison model, based on Elo Rankings.  Elo Rankings, invented by physics professor Arpad Elo, were first used in chess rankings in 1960.
+# Men's Tennis Predictions
 
-This proposal attempts to broaden the work done thus far, and would need to achieve accuracies in 60-70% range to be useful.  The predictors (features) that were found to be useful (especially relative rankings of the players) will be preserved, while considering other features not addressed by all models.  A pair of examples are as follows:
-1. Player having early exits from more than one previous tournament
-2. Weighting recent result less strongly than the exponential drop-off of one previous model, perhaps with a power law.
+This project predicts win probabilities for players in professional mens tennis singles match on the ATP Tour. 
 
-The most significant departure from existing model that this proposal will consider is using tree-based models (Random Forests and Boosted Trees).  Boosted trees have been shown to have high performance in other arenas, such as Kaggle competitions.
+# Background
+There have been several models developed for this purpose in the past. The [review](http://vuir.vu.edu.au/34652/1/jqas-2015-0059.pdf) by Kovalchik (2016) has an excellent comparison and discussion of the models. Some have used regression ('logit' or 'probit') methods, whereas others have predicted winners based on point-by-point outcome probabilities.  One of the best methods comes from FiveThirtyEight, resulting in an accuracy of 70%.  This method uses a pair comparison model, based on Elo Rankings.  Elo Rankings, invented by physics professor Arpad Elo, were first used in chess rankings in 1960.
 
-If this work is successful, the biggest economic impact would be in contributing to gambling and betting lines.  As suggested by Kovalchik (2016), it also could be useful for sports analysts and coaches. Both may gain insight into what makes one player more probable to win than another, where coaches may be able to use that information to benefit a player.
+The biggest economic impact of accurate predictions is contributing to gambling and betting lines.  As suggested by Kovalchik (2016), it also could be useful for sports analysts and coaches. Both may gain insight into what makes one player more probable to win than another, where coaches may be able to use that information to benefit a player.
 
-The following is the anticipated workflow and output of this project.  The data needed to implement the work are available in CSV files total approximately 600 MB.  The next step is to understand the data.  Several columns in the data have as-yet undeciphered meanings, such as the suffix 'slug'.  After cleaning the data (including an observed instance of misaligned columns), exploratory data analysis (EDA) will help gain insight into relationships in the data which can inform the model.  At the end of the project, results will be delivered using slides in a presentation. 
-The potential issues with this project anticipated thus far are as follows:
-* Finding that some of the features desired are not present
-* Making sure that the model only uses past data for any given match
+# Procedures followed
 
-In the first case, the sources of data were examined to take rich information from existing sources, including player characteristics and match characteristics.  In the second case, the plan is to set up directories segregating information and labeling them so the time frames are clear.
+The project uses data gathered by Jeff Sackmann at [Tennis Abstract](http://www.tennisabstract.com/). It was available on GitHub in the [tennis_atp repo](https://github.com/JeffSackmann/tennis_atp).  Each row of data is for a particular match and each column contains the factors (features) of the match.  The features are of three types:
+* Tournament features: Tournament ID, Date, Playing Surface, etc.
+* Players features: Height, Age, Handedness
+* Match features: Aces, Double Faults, etc.
+
+Two challenges in this gathered data are as follows:
+1. Each row contains both the winner and the loser, and so does not associate well with a single target.
+2. Rows contain _match features_ about the match itself, which **would not** be available for the sake of predicting the match.
+
+For the first issue, data needs separated into data for the winner and data for the loser.  For the second issue, the _match features_ are considered important to making a more accurate prediction. Thus, a method to populate these features is required.
+
+### Feature engineering
+
+_Feature engineering_ refers to the process of modifying the feature space (adding, removing, or transforming features) for the purpose of making them more predictive.  Feature engineering for the two steps mentioned above were accomplished using the following procedures.
+
+The dataset was first paritioned into two sets, one for the winner and one for the loser. The feature names (i.e. column labels) were then matched when appropriate (e.g. "Winner Aces" and "Loser Aces" to "Aces").  A new column is added, with label "1" ascribed to the winner data and "0" ascribed to the loser data.  The next step is concatenating the two resultant datasets to make one large dataframe. This accomplishes the first step needed: each row is associated with a unique target. This step has the 
+
+The second step involves generating the statistics of interest for a particular match. Since one only has access to _past_ data, some form of data from _previous matches_ is needed. In the project, data for any match were generated for the _players in the match_ from the past _one year_ of matches that the player played. This was done using rolling average in pandas, with the .rolling() DataFrame method.
+
+ 
+
+### Models Used
+
+The models used were logistic regression, random forests, and gradient-boosted trees.  To make as direct a comparison between the models, the same features were used in the analysis. 
+
+The list of features used is as follows:
 
 
 
-Reference cited:
-Kovalchik: J. Quant. Anal. Sports 2016; 12(3): 127–138
+
+
+## Results and Discussion
+
+The results of this two-week project yielded an accuracy of 60%.  All three models are within 1% of this value. Accuracy is an acceptable metric since this is an eminently balanced class problem: For every winner, there is a loser.
+
+Interestingly, all three models considered here yielded very similar accuracy using the same features. For the two tree-based methods, the hyper-parameters were tuned.  It is likely that the Random Forest model is nearly optimally tuned, but the Gradient-boosted Tree models may benefit from additional tuning.
+
+
+# Further Investigation 
+
+Several avenues for further investigation exist:
+1. Considering a simpler model, so that there is no need for computing statistics from previous matches.
+2. Using clustering to group players to determine a style and utilize these groups to make better predictions. 
+3. Distributing the statistics over the surfaces (eg. aces on grass) because I have a difficult time believing the results that surface is not a major predictor.
+
+
+# Reference Cited :
+Stephanie Ann Kovalchik. ["Searching for the GOAT of tennis win prediction"](http://vuir.vu.edu.au/34652/1/jqas-2015-0059.pdf) _Journal of Quantitative Analysis in Sports_. 12(3): 127–138, 2016.
