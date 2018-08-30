@@ -3,4 +3,4 @@ archives/
 data_JeffSackmann/
 data_atp_world_tour_tennis/
 *.ipynb
-./*.odt
+*.odt
