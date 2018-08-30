@@ -1,4 +1,6 @@
 .ipynb_checkpoints/
 archives/
-JeffSackmannData/
-data_atp_world_tour_tennis_data/
+data_JeffSackmann/
+data_atp_world_tour_tennis/
+*.ipynb
+*.odt
