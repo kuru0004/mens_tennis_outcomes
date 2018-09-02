@@ -17,7 +17,7 @@ The project uses data gathered by Jeff Sackmann at [Tennis Abstract](http://www.
 <p align="center"> 
 <img src="images/workflow_tools_fig.png" height=80%, width=80%, alt="Workflow and Tech stack">
 </p>
-<br>Figure 1. Machine Learning Workflow and Tools
+Figure 1. Machine Learning Workflow and Tools
 
 
 Two challenges in this gathered data are as follows:
@@ -59,10 +59,15 @@ Interestingly, all three models considered here yielded very similar accuracy us
 
 ## Insights
 
-<img src="images/logistic_reg_coeff_plot.jpg" height=80%, width=80%, alt="Fehttps://github.com/kuru0004/mens_tennis_outcomes/blob/18_readme_update/images/workflow_tools_fig.pngature Importance for Logistic Regression" align="middle"><br>Figure 5. Logistic Regression Coefficients For Normalized Model Features
 
-<img src="images/random_forest_feature_imp_plot.jpg" height=80%, width=80%, alt="Expunge Extra Data" align="middle"><br>Figure 6. Generate New Feature Values Based on Previous Player Data
+<p align="center"> 
+<img src="images/logistic_reg_coeff_plot.jpg" height=80%, width=80%, alt="Fehttps://github.com/kuru0004/mens_tennis_outcomes/blob/18_readme_update/images/workflow_tools_fig.pngature Importance for Logistic Regression"><br>Figure 5. Logistic Regression Coefficients For Normalized Model Features
+</p>
 
+
+<p align="center"> 
+<img src="images/random_forest_feature_imp_plot.jpg" height=80%, width=80%, alt="Expunge Extra Data" align="middle"><br>*Figure 6.* Generate New Feature Values Based on Previous Player Data
+</p>
 
 
 
