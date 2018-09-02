@@ -32,7 +32,12 @@ The dataset was first paritioned into two sets, one for the winner and one for t
 
 The second step involves generating the statistics of interest for a particular match. Since one only has access to _past_ data, some form of data from _previous matches_ is needed. In the project, data for any match were generated for the _players in the match_ from the past _one year_ of matches that the player played. This was done using rolling average in pandas, with the .rolling() DataFrame method.
 
- 
+<img src="images/data_to_feature_eng.png" height=80%, width=80%, alt="Player Groups"><br>Figure 2. Data Grouped by Player
+
+
+<img src="images/feature_eng_applies_to_each_record.png" height=80%, width=80%, alt="Expunge Extra Data"><br>Figure 3. Eliminate Inaccessible Data
+
+<img src="images/result_exmpl_of_feature_eng.png" height=80%, width=80%, alt="Expunge Extra Data"><br>Figure 4. Generate New Feature Values Based on Previous Player Data
 
 ### Models Used
 
@@ -44,11 +49,19 @@ The list of features used is as follows:
 
 
 
-## Results and Discussion
+# Results and Discussion
 
 The results of this two-week project yielded an accuracy of 60%.  All three models are within 1% of this value. Accuracy is an acceptable metric since this is an eminently balanced class problem: For every winner, there is a loser.
 
-Interestingly, all three models considered here yielded very similar accuracy using the same features. For the two tree-based methods, the hyper-parameters were tuned.  It is likely that the Random Forest model is nearly optimally tuned, but the Gradient-boosted Tree models may benefit from additional tuning.
+Interestingly, all three models considered here yielded very similar accuracy using the same features. For the two tree-based methods, the hyper-parameters were tuned.  It is likely that the Random Forest model is nearly optimally tuned, but the Gradient-boosted Tree models may benefit from additional tuning.  However further efforts would likely best be spent on feature selection or on feature engineering.
+
+## Insights
+
+<img src="images/logistic_reg_coeff_plot.jpg" height=80%, width=80%, alt="Feature Importance for Logistic Regression" ALIGN="center"><br>Figure 5. Logistic Regression Coefficients For Normalized Model Features
+
+<img src="images/random_forest_feature_imp_plot.jpg" height=80%, width=80%, alt="Expunge Extra Data" ALIGN="center"><br>Figure 6. Generate New Feature Values Based on Previous Player Data
+
+
 
 
 # Further Investigation 
