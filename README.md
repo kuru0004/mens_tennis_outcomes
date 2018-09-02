@@ -14,6 +14,10 @@ The project uses data gathered by Jeff Sackmann at [Tennis Abstract](http://www.
 * Players features: Height, Age, Handedness
 * Match features: Aces, Double Faults, etc.
 
+
+<img src="images/workflow_tools_fig.png" height=80%, width=80%, alt="Workflow and Tech stack"><br>Figure 1. Machine Learning Workflow and Tools
+
+
 Two challenges in this gathered data are as follows:
 1. Each row contains both the winner and the loser, and so does not associate well with a single target.
 2. Rows contain _match features_ about the match itself, which **would not** be available for the sake of predicting the match.
@@ -56,5 +60,5 @@ Several avenues for further investigation exist:
 
 
 # Reference Cited :
-Stephanie Ann Kovalchik. ["Searching for the GOAT of tennis win prediction"](http://vuir.vu.edu.au/34652/1/jqas-2015-0059.pdf) _Journal of Quantitative Analysis in Sports_. 12(3): 127–138, 2016.<br><br>
+Stephanie Ann Kovalchik. ["Searching for the GOAT of tennis win prediction"](http://vuir.vu.edu.au/34652/1/jqas-2015-0059.pdf) _Journal of Quantitative Analysis in Sports_. 12(3): 127–138, 2016.<br>
 ["Elo rating system"](https://en.wikipedia.org/wiki/Elo_rating_system) Wikipedia. Viewed August 2018.
