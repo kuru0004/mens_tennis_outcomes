@@ -14,8 +14,10 @@ The project uses data gathered by Jeff Sackmann at [Tennis Abstract](http://www.
 * Players features: Height, Age, Handedness
 * Match features: Aces, Double Faults, etc.
 
-
-<img src="images/workflow_tools_fig.png" height=80%, width=80%, alt="Workflow and Tech stack" align="middle"><br>Figure 1. Machine Learning Workflow and Tools
+<p align="center"> 
+<img src="images/workflow_tools_fig.png" height=80%, width=80%, alt="Workflow and Tech stack">
+</p>
+<br>Figure 1. Machine Learning Workflow and Tools
 
 
 Two challenges in this gathered data are as follows:
