@@ -1,6 +1,6 @@
 # Men's Tennis Predictions
 
-This project predicts player win probabilities in men's professional tennis singles match on the ATP Tour. 
+Do you know the feeling when your favorite team or player loses a game they were supposed to win?  As a sports fan, I have experienced that dejection, especially painfully in the elimination stages at the end of a season or tournament. What determines how well one can predict outcomes in sports competitions? One can start to answer this question with an example case, specifically men's tennis matches. This project predicts player win probabilities in men's professional tennis singles match on the ATP Tour. 
 
 # Background
 There have been several models developed for this purpose in the past. The [review](http://vuir.vu.edu.au/34652/1/jqas-2015-0059.pdf) by Kovalchik (2016) has an excellent comparison and discussion of the models. Some have used regression ('logit' or 'probit') methods, whereas others have predicted winners based on point-by-point outcome probabilities.  One of the best methods comes from FiveThirtyEight, resulting in an accuracy of 70%.  This method uses a pair comparison model, based on Elo Ratings.  [Elo Ratings](https://en.wikipedia.org/wiki/Elo_rating_system), invented by physics professor Arpad Elo, were first used in chess rankings in 1960.
