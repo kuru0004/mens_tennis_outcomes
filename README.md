@@ -15,8 +15,7 @@ The project uses data gathered by Jeff Sackmann at [Tennis Abstract](http://www.
 * Match features: Aces, Double Faults, etc.
 
 <p align="center"> 
-<img src="images/workflow_tools_fig.png" height=80%, width=80%, alt="Workflow and Tech stack">
-**Figure 1:** Machine Learning Workflow and Tools
+<img src="images/workflow_tools_fig.png" height=80%, width=80%, alt="Workflow and Tech stack"><br> **Figure 1:** Machine Learning Workflow and Tools
 </p>
 
 
