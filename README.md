@@ -35,15 +35,15 @@ The dataset was first paritioned into two sets, one for the winner and one for t
 The second step involves generating the statistics of interest for a particular match. Since one only has access to _past_ data, some form of data from _previous matches_ is needed. In the project, data for any match were generated for the _players in the match_ from the past _one year_ of matches that the player played. This was done using rolling average in pandas, with the .rolling() DataFrame method.
 
 <p align="center"> 
-<img src="images/data_to_feature_eng.png" height=80%, width=80%, alt="Player Groups" align="middle"><br> **Figure 2:** Data Grouped by Player
+<img src="images/data_to_feature_eng.png" height=80%, width=80%, alt="Player Groups" align="middle"><br> <b>Figure 2:</b> Data Grouped by Player
 </p>
 
 <p align="center"> 
-<img src="images/feature_eng_applies_to_each_record.png" height=80%, width=80%, alt="Expunge Extra Data" align="middle"><br> **Figure 3:** Eliminate Inaccessible Data
+<img src="images/feature_eng_applies_to_each_record.png" height=80%, width=80%, alt="Expunge Extra Data" align="middle"><br> <b>Figure 3:</b> Eliminate Inaccessible Data
 </p>
 
 <p align="center"> 
-<img src="images/result_exmpl_of_feature_eng.png" height=90%, width=90%, alt="Expunge Extra Data" align="middle"><br> **Figure 4:** Generate New Feature Values Based on Previous Player Data
+<img src="images/result_exmpl_of_feature_eng.png" height=90%, width=90%, alt="Expunge Extra Data" align="middle"><br> <b>Figure 4:</b> Generate New Feature Values Based on Previous Player Data
 </p>
 
 ### Models Used
@@ -66,12 +66,12 @@ Interestingly, all three models considered here yielded very similar accuracy us
 
 
 <p align="center"> 
-<img src="images/logistic_reg_coeff_plot.jpg" height=80%, width=80%, alt="Fehttps://github.com/kuru0004/mens_tennis_outcomes/blob/18_readme_update/images/workflow_tools_fig.pngature Importance for Logistic Regression"><br> **Figure 5:** Logistic Regression Coefficients For Normalized Model Features
+<img src="images/logistic_reg_coeff_plot.jpg" height=80%, width=80%, alt="Fehttps://github.com/kuru0004/mens_tennis_outcomes/blob/18_readme_update/images/workflow_tools_fig.pngature Importance for Logistic Regression"><br> <b>Figure 5:</b> Logistic Regression Coefficients For Normalized Model Features
 </p>
 
 
 <p align="center"> 
-<img src="images/random_forest_feature_imp_plot.jpg" height=80%, width=80%, alt="Expunge Extra Data" align="middle"><br> **Figure 6:** Generate New Feature Values Based on Previous Player Data
+<img src="images/random_forest_feature_imp_plot.jpg" height=80%, width=80%, alt="Expunge Extra Data" ><br> <b>Figure 6:</b> Generate New Feature Values Based on Previous Player Data
 </p>
 
 
