@@ -39,7 +39,7 @@ The second step involves generating the statistics of interest for a particular 
 </p>
 
 <p align="center"> 
-<img src="images/feature_eng_applies_to_each_record.png" height=80%, width=80%, alt="Expunge Extra Data" align="middle"><br> <b>Figure 3:</b> Eliminate Inaccessible Data
+<img src="images/feature_eng_applies_to_each_record.png" height=80%, width=80%, alt="Expunge Extra Data" align="middle"><br> <b>Figure 3:</b> Eliminate Data Inaccessible <i>a priori</i>
 </p>
 
 <p align="center"> 
