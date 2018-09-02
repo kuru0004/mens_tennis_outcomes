@@ -35,12 +35,17 @@ The dataset was first paritioned into two sets, one for the winner and one for t
 
 The second step involves generating the statistics of interest for a particular match. Since one only has access to _past_ data, some form of data from _previous matches_ is needed. In the project, data for any match were generated for the _players in the match_ from the past _one year_ of matches that the player played. This was done using rolling average in pandas, with the .rolling() DataFrame method.
 
+<p align="center"> 
 <img src="images/data_to_feature_eng.png" height=80%, width=80%, alt="Player Groups" align="middle"><br> **Figure 2:** Data Grouped by Player
+</p>
 
-
+<p align="center"> 
 <img src="images/feature_eng_applies_to_each_record.png" height=80%, width=80%, alt="Expunge Extra Data" align="middle"><br> **Figure 3:** Eliminate Inaccessible Data
+</p>
 
+<p align="center"> 
 <img src="images/result_exmpl_of_feature_eng.png" height=90%, width=90%, alt="Expunge Extra Data" align="middle"><br> **Figure 4:** Generate New Feature Values Based on Previous Player Data
+</p>
 
 ### Models Used
 
