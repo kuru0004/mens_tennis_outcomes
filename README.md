@@ -15,7 +15,7 @@ The project uses data gathered by Jeff Sackmann at [Tennis Abstract](http://www.
 * Match features: Aces, Double Faults, etc.
 
 
-<img src="images/workflow_tools_fig.png" height=80%, width=80%, alt="Workflow and Tech stack" align="right"><br>Figure 1. Machine Learning Workflow and Tools
+<img src="images/workflow_tools_fig.png" height=80%, width=80%, alt="Workflow and Tech stack" align="middle"><br>Figure 1. Machine Learning Workflow and Tools
 
 
 Two challenges in this gathered data are as follows:
@@ -32,12 +32,12 @@ The dataset was first paritioned into two sets, one for the winner and one for t
 
 The second step involves generating the statistics of interest for a particular match. Since one only has access to _past_ data, some form of data from _previous matches_ is needed. In the project, data for any match were generated for the _players in the match_ from the past _one year_ of matches that the player played. This was done using rolling average in pandas, with the .rolling() DataFrame method.
 
-<img src="images/data_to_feature_eng.png" height=80%, width=80%, alt="Player Groups"><br>Figure 2. Data Grouped by Player
+<img src="images/data_to_feature_eng.png" height=80%, width=80%, alt="Player Groups" align="middle"><br>Figure 2. Data Grouped by Player
 
 
-<img src="images/feature_eng_applies_to_each_record.png" height=80%, width=80%, alt="Expunge Extra Data"><br>Figure 3. Eliminate Inaccessible Data
+<img src="images/feature_eng_applies_to_each_record.png" height=80%, width=80%, alt="Expunge Extra Data" align="middle"><br>Figure 3. Eliminate Inaccessible Data
 
-<img src="images/result_exmpl_of_feature_eng.png" height=80%, width=80%, alt="Expunge Extra Data"><br>Figure 4. Generate New Feature Values Based on Previous Player Data
+<img src="images/result_exmpl_of_feature_eng.png" height=80%, width=80%, alt="Expunge Extra Data" align="middle"><br>Figure 4. Generate New Feature Values Based on Previous Player Data
 
 ### Models Used
 
@@ -57,9 +57,9 @@ Interestingly, all three models considered here yielded very similar accuracy us
 
 ## Insights
 
-<img src="images/logistic_reg_coeff_plot.jpg" height=80%, width=80%, alt="Fehttps://github.com/kuru0004/mens_tennis_outcomes/blob/18_readme_update/images/workflow_tools_fig.pngature Importance for Logistic Regression" ALIGN="center"><br>Figure 5. Logistic Regression Coefficients For Normalized Model Features
+<img src="images/logistic_reg_coeff_plot.jpg" height=80%, width=80%, alt="Fehttps://github.com/kuru0004/mens_tennis_outcomes/blob/18_readme_update/images/workflow_tools_fig.pngature Importance for Logistic Regression" align="middle"><br>Figure 5. Logistic Regression Coefficients For Normalized Model Features
 
-<img src="images/random_forest_feature_imp_plot.jpg" height=80%, width=80%, alt="Expunge Extra Data" ALIGN="center"><br>Figure 6. Generate New Feature Values Based on Previous Player Data
+<img src="images/random_forest_feature_imp_plot.jpg" height=80%, width=80%, alt="Expunge Extra Data" align="middle"><br>Figure 6. Generate New Feature Values Based on Previous Player Data
 
 
 
