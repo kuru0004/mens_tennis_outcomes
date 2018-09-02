@@ -15,7 +15,7 @@ The project uses data gathered by Jeff Sackmann at [Tennis Abstract](http://www.
 * Match features: Aces, Double Faults, etc.
 
 
-<img src="images/workflow_tools_fig.png" height=80%, width=80%, alt="Workflow and Tech stack"><br>Figure 1. Machine Learning Workflow and Tools
+<img src="images/workflow_tools_fig.png" height=80%, width=80%, alt="Workflow and Tech stack" align="right"><br>Figure 1. Machine Learning Workflow and Tools
 
 
 Two challenges in this gathered data are as follows:
@@ -57,7 +57,7 @@ Interestingly, all three models considered here yielded very similar accuracy us
 
 ## Insights
 
-<img src="images/logistic_reg_coeff_plot.jpg" height=80%, width=80%, alt="Feature Importance for Logistic Regression" ALIGN="center"><br>Figure 5. Logistic Regression Coefficients For Normalized Model Features
+<img src="images/logistic_reg_coeff_plot.jpg" height=80%, width=80%, alt="Fehttps://github.com/kuru0004/mens_tennis_outcomes/blob/18_readme_update/images/workflow_tools_fig.pngature Importance for Logistic Regression" ALIGN="center"><br>Figure 5. Logistic Regression Coefficients For Normalized Model Features
 
 <img src="images/random_forest_feature_imp_plot.jpg" height=80%, width=80%, alt="Expunge Extra Data" ALIGN="center"><br>Figure 6. Generate New Feature Values Based on Previous Player Data
 
