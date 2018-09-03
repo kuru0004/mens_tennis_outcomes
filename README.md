@@ -46,7 +46,7 @@ The second step involves generating the statistics of interest for a particular 
 </p>
 
 <p align="center"> 
-<img src="images/result_exmpl_of_feature_eng.png" height=83%, width=83%, alt="Expunge Extra Data" align="middle"><br> <b>Figure 4:</b> Generate New Feature Values Based on Previous Player Data
+<img src="images/result_exmpl_of_feature_eng.png" height=85%, width=85%, alt="Expunge Extra Data" align="middle"><br> <b>Figure 4:</b> Generate New Feature Values Based on Previous Player Data
 </p>
 
 ### Models Used
