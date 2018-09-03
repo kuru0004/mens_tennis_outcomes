@@ -4,10 +4,10 @@ Do you know the feeling when your favorite team or player loses a game they were
 
 The following sections provide details of the work. Additionally, a narrated summary of this project appears in this [video](https://youtu.be/ao2_MfWDg1g).
 
-Note: This work originated as a Capstone project for the Data Science Immersive curriculum at Galvanize in August 2018. The work however is ongoing.
+Note: This work originated as a Capstone project for the Data Science Immersive curriculum at Galvanize in August 2018. The efforts are continuing.
 
 # Background
-There have been several models developed for this purpose in the past. The [review](http://vuir.vu.edu.au/34652/1/jqas-2015-0059.pdf) by Kovalchik (2016) has an excellent comparison and discussion of the models. Some have used regression ('logit' or 'probit') methods, whereas others have predicted winners based on point-by-point outcome probabilities.  One of the best methods comes from FiveThirtyEight, resulting in an accuracy of 70%.  This method uses a pair comparison model, based on Elo Ratings.  [Elo Ratings](https://en.wikipedia.org/wiki/Elo_rating_system), invented by physics professor Arpad Elo, were first used in chess rankings in 1960. For reference, a book-makers' consensus model (based on averaging predictions made by human experts) yields an accuracy of 72%.
+There have been several models developed for this purpose in the past. The [review](http://vuir.vu.edu.au/34652/1/jqas-2015-0059.pdf) by Kovalchik (2016) has an excellent comparison and discussion of the models. Some have used regression ('logit' or 'probit') methods, whereas others have predicted winners based on point-by-point outcome probabilities.  One of the best methods comes from FiveThirtyEight, resulting in an accuracy of 70%.  This method uses a pair comparison model, based on Elo Ratings.  [Elo Ratings](https://en.wikipedia.org/wiki/Elo_rating_system), invented by physics professor Arpad Elo, were first used in chess rankings in 1960. For reference, a bookmakers' consensus model (based on averaging predictions made by human experts) yields an accuracy of 72%.
 
 The biggest economic impact of accurate predictions is contributing to gambling and betting lines.  As suggested by Kovalchik (2016), it also could be useful for sports analysts and coaches. Both may gain insight into what makes one player more probable to win than another, where coaches may be able to use that information to benefit a player.
 
@@ -28,7 +28,7 @@ An overview of the process is shown in Figure 1.  The data was prepared using th
 </p>
 
 A flavor of the data cleaning required is as follows: 
-For missing player rank (% of cases), the ranking was filled first with their average ranking over the data used and second with the worst (largest) ranking observed. The second is done because if a player ranking is not available due to the ranking being too poor (large number) to be recorded.
+For missing player rank (2.4% of cases), the ranking was filled first with their average ranking over the data used and second with the worst (largest) ranking observed. The second is done because if a player ranking is not available due to the ranking being too poor (large number) to be recorded.
 
 Two challenges in this gathered data are as follows:
 1. Each row contains both the winner and the loser, and so does not associate well with a single target.
@@ -40,11 +40,11 @@ For the first issue, data needs separated into data for the winner and data for 
 
 _Feature engineering_ refers to the process of modifying the feature space (adding, removing, or transforming features) for the purpose of making them more predictive.  Feature engineering for the two steps mentioned above were accomplished using the following procedures.
 
-The dataset was first paritioned into two sets, one for the winner and one for the loser. The feature names (i.e. column labels) were then matched when appropriate (e.g. "Winner Aces" and "Loser Aces" to "Aces").  A new column is added, with label "1" ascribed to the winner data and "0" ascribed to the loser data.  The next step is concatenating the two resultant datasets to make one large dataframe. This accomplishes the first step needed: each row is associated with a unique target. This step has the effect of doubling the number of rows ('observations') while condensing the number of features.
+The dataset was first partitioned into two sets, one for the winner and one for the loser. The feature names (i.e. column labels) were then matched when appropriate (e.g. "Winner Aces" and "Loser Aces" to "Aces").  A new column is added, with label "1" ascribed to the winner data and "0" ascribed to the loser data.  The next step is concatenating the two resultant datasets to make one large dataframe. This accomplishes the first step needed: each row is associated with a unique target. This step has the effect of doubling the number of rows ('observations') while condensing the number of features.
 
-The second step involves generating the statistics of interest for a particular match. Since one only has access to _past_ data, some form of data from _previous matches_ is needed. In the project, data for any match were generated for the _players in the match_ from the past _one year_ of matches that the player played. This was done using rolling average in pandas, with the .rolling() DataFrame method. The process is illustrated in Figures 2-4.
+The second step involves generating the statistics of interest for a particular match.  Since one only has access to _past_ data, some form of data from _previous matches_ is needed. In the project, data for any match were generated for the **players in the match** from the past _one year_ of matches that the player played. This was done using rolling average in pandas, with the .rolling() DataFrame method.  The process is illustrated in Figures 2-4.
 
-Figure 2 shows an example of how the data is prepared for analysis. For a particular player, the data from a certain time period are gathered together. Note that in Figure 2, the data are in _reverse_ chronological order.Elements of the tournament features, player features, and match features are all used in this process, although Figure 2 illustrates the match features specifically. 
+Figure 2 shows an example of how the data is prepared for analysis. For a particular player, the data from a certain time period are gathered together. Note that in Figure 2, the data are in _reverse_ chronological order.  Elements of the tournament features, player features, and match features are all used in this process, although Figure 2 illustrates the match features specifically. 
 
 <p align="center"> 
 <img src="images/data_to_feature_eng.png" height=80%, width=80%, alt="Player Groups" align="middle"><br> <b>Figure 2:</b> Data Grouped by Player
@@ -56,33 +56,59 @@ The next step is removing the data associated with the particular match in quest
 <img src="images/feature_eng_applies_to_each_record.png" height=80%, width=80%, alt="Expunge Extra Data" align="middle"><br> <b>Figure 3:</b> Eliminate Data Inaccessible <i>a priori</i>
 </p>
 
-This process is completed in Figure 4.  The values populating the first row are the mean values from the rest of data and are now associated with the target ("Win or Loss" column). This association of the engineered features with the target is used to train the models in the work.  The features of the test data (separate set from the training data)
+This process is completed in Figure 4.  The values populating the first row are the avearge (mean) values from the remaining and are now associated with the target ("Win or Loss" column) in the first row. The process illustrated in Figures 2-4 is repeated for each observation in the data, namely replacing match features for each player in each match with data from that player's previous year of matches.
 
 <p align="center"> 
 <img src="images/result_exmpl_of_feature_eng.png" height=85%, width=85%, alt="Expunge Extra Data" align="middle"><br> <b>Figure 4:</b> Generate New Feature Values Based on Previous Player Data
 </p>
 
+This association of the engineered features with the target is used to train the models.  The features of the _test_ data (separate set from the _training_ data) are also similarly engineered in order to predict the target (Win or Loss).
+
 ### Models Used
 
-The models used were logistic regression, random forests, and gradient-boosted trees.  To make as direct a comparison between the models, the same features were used in the analysis. 
+The models used were logistic regression, random forests, and gradient-boosted trees.  Logistic regression was chosen for its similarity to model used in previous work, while allowing for different features to have prominence in the present project. Tree-based methods (random forest, gradient-boosted trees) were used since they often provide good performance and seemed to be underutilized in previous tennis predictions.
+  
+To make as direct a comparison between the models as possible, the same features were used in the analysis. The list of features used is as follows:
 
-The list of features used is as follows:
+>Tournament Features:
+* Surface: one-hot encoded for 'Carpet','Clay', 'Hard', 'Grass', 'None'
+* Tournament Level: one-hot encoded for 'A'(lowest level), 'C' (mid level), 'M' (masters level),'G' (Grand Slam level), 'F' (end-of-year finals),  'D' (Davis Cup)
+>Player Features:
+* age: player age
+* hand: one-hot encoded for 'L' (left),'R' (right), and 'U' (unknown)
+* ht: player height
+* rank_points: accrued points for all 
+
+>Match Features:
+* 1stIn: Number of first serves not out when serving
+* 1stWon: Number of points won on first serve when serving
+* 2ndWon: Number of point won on second serve when serving
+* SvGms: Number of service games
+* svpt: Number of service points
+* ace: number of aces
+* bpFaced: number of break points faced when serving
+* bpSaved: number of break points saved when serving
+* df: double faults committed when serving
+* minutes: how long a match lasts
 
 
+
+     
+        
 
 
 
 # Results and Discussion
 
-As mentioned earlier, all models used resulted in an accuracy value of 0.60 (or 60%).  All three models are within 1% of this value. Accuracy is an acceptable metric since this is an eminently balanced class problem: For every winner, there is a loser.
+As mentioned earlier, all models used resulted in an accuracy value of 0.60 (or 60%).  All three models are within 1% of this value. Accuracy is an acceptable metric since this is an eminently balanced-class problem: For every winner, there is a loser, known as a 'zero-sum game'.
 
-It is interesting that all three models considered here yielded very similar accuracy using the same features. For the two tree-based methods, the hyper-parameters were tuned.  It is likely that the Random Forest model is nearly optimally tuned, but the Gradient-boosted Tree models may benefit from additional tuning.  However further efforts would likely best be spent on feature selection or on more feature engineering.
+It is interesting that all three models considered here yielded very similar accuracy using the same features. For the two tree-based methods, the hyper-parameters were tuned.  It is likely that the Random Forest model is nearly optimally tuned, but the Gradient Boosted Tree models may benefit from additional tuning.  However further efforts would likely best be spent on feature selection or on more feature engineering.
 
 ## Insights
 
 
 <p align="center"> 
-<img src="images/logistic_reg_coeff_plot.jpg" height=80%, width=80%, alt="Fehttps://github.com/kuru0004/mens_tennis_outcomes/blob/18_readme_update/images/workflow_tools_fig.pngature Importance for Logistic Regression"><br> <b>Figure 5:</b> Logistic Regression Coefficients For Normalized Model Features
+<img src="images/logistic_reg_coeff_plot.jpg" height=80%, width=80%, alt="Feature Importance for Logistic Regression"><br> <b>Figure 5:</b> Logistic Regression Coefficients For Normalized Model Features
 </p>
 
 
@@ -95,7 +121,8 @@ It is interesting that all three models considered here yielded very similar acc
 
 Several avenues for further investigation exist:
 1. Considering a simpler model, so that there is no need for computing statistics from previous matches.
-2. Using clustering to group players to determine a style and utilize these groups to make better predictions. 
+2. Using clustering to group players to determine a style and utilize these groups to make better predictions.
+	* First, gather player statistics  
 3. Distributing the statistics over the surfaces (eg. aces on grass) because I have a difficult time believing the results that surface is not a major predictor.
 
 
