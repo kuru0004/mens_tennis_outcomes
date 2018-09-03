@@ -9,10 +9,13 @@ The biggest economic impact of accurate predictions is contributing to gambling 
 
 # Procedures followed
 
-The project uses data gathered by Jeff Sackmann at [Tennis Abstract](http://www.tennisabstract.com/). It was available on GitHub in the [tennis_atp repo](https://github.com/JeffSackmann/tennis_atp).  Each row of data is for a particular match and each column contains the factors (features) of the match.  The features are of three types:
+The project uses data gathered by Jeff Sackmann at [Tennis Abstract](http://www.tennisabstract.com/). It was available on GitHub in the [tennis_atp repo](https://github.com/JeffSackmann/tennis_atp).  Each row of data is for a particular match and each column contains the factors (features) of the match.  For data from 1992 through 2017, a larger set of data are available. (Data is also available for 2018, but this data was not used because the tournaments for that year were not complete at the time of the project.  Including this data would bias the data
+The features are of three types:
 * Tournament features: Tournament ID, Date, Playing Surface, etc.
 * Players features: Height, Age, Handedness
 * Match features: Aces, Double Faults, etc.
+
+An overview of the process is shown in Figure 1.  The data was prepared using the stardard Python stack (numpy, pandas, etc.) to 
 
 <p align="center"> 
 <img src="images/workflow_tools_fig.png" height=80%, width=80%, alt="Workflow and Tech stack"><br> <b>Figure 1:</b> Machine Learning Workflow and Tools
@@ -43,7 +46,7 @@ The second step involves generating the statistics of interest for a particular 
 </p>
 
 <p align="center"> 
-<img src="images/result_exmpl_of_feature_eng.png" height=90%, width=90%, alt="Expunge Extra Data" align="middle"><br> <b>Figure 4:</b> Generate New Feature Values Based on Previous Player Data
+<img src="images/result_exmpl_of_feature_eng.png" height=83%, width=83%, alt="Expunge Extra Data" align="middle"><br> <b>Figure 4:</b> Generate New Feature Values Based on Previous Player Data
 </p>
 
 ### Models Used
