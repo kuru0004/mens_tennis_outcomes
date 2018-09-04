@@ -20,7 +20,7 @@ The features are of three types:
 * Players features: Height, Age, Handedness
 * Match features: Aces, Double Faults, etc.
 
-An overview of the process is shown in Figure 1.  The data was prepared using the stardard Python stack (numpy, pandas, etc.) to remove or fill missing values and to select features. Then, the match data is generated from previous player matches. (More detail on this appear later in this section.) Finally, Logistic Regression, Random Forest, and Gradient Boosted Trees all resulted in 60%accuracy.
+An overview of the process is shown in Figure 1.  The data was prepared using the standard Python stack (numpy, pandas, etc.) to remove or fill missing values and to select features. Then, the match data is generated from previous player matches. (More detail on this appear later in this section.) Finally, Logistic Regression, Random Forest, and Gradient Boosted Trees all resulted in 60% accuracy.
 
 
 <p align="center"> 
@@ -56,7 +56,7 @@ The next step is removing the data associated with the particular match in quest
 <img src="images/feature_eng_applies_to_each_record.png" height=80%, width=80%, alt="Expunge Extra Data" align="middle"><br> <b>Figure 3:</b> Eliminate Data Inaccessible <i>a priori</i>
 </p>
 
-This process is completed in Figure 4.  The values populating the first row are the avearge (mean) values from the remaining and are now associated with the target ("Win or Loss" column) in the first row. The process illustrated in Figures 2-4 is repeated for each observation in the data, namely replacing match features for each player in each match with data from that player's previous year of matches.
+This process is completed in Figure 4.  The values populating the first row are the average (mean) values from the remaining and are now associated with the target ("Win or Loss" column) in the first row. The process illustrated in Figures 2-4 is repeated for each observation in the data, namely replacing match features for each player in each match with data from that player's previous year of matches.
 
 <p align="center"> 
 <img src="images/result_exmpl_of_feature_eng.png" height=85%, width=85%, alt="Expunge Extra Data" align="middle"><br> <b>Figure 4:</b> Generate New Feature Values Based on Previous Player Data
@@ -102,17 +102,17 @@ It is interesting that all three models considered here yielded very similar acc
 
 One can gather insights about what features are more predictive for the outcome of a match from the models used. Here, only the Logistic Regression and Random Forest are considered since all models resulted in very similar value of accuracy.
 
-Figure 5 shows the normalized values of the Logistic Regression coefficients.  The normalizatin occurs in two steps.
+Figure 5 shows the normalized values of the Logistic Regression coefficients.  The normalization occurs in two steps.
 * First, the features are scaled before applying the Logistic Regression
 * Second, the resultant coefficients are normalized to the coefficient with the largest magnitude.
-The most important features are shown toward the left side of Figure 5. In Logistic Regression, the single-most important features is the rank_points (a measure of the player's relative rank). This matches findings from previous works (Kovalchik, 2016). Additionally, other important variables were based on winning points, either as a measure of consistency (1stWon, 2ndWon) or performance in high-value situations (bpSaved). Unexpectedly, the surface ('Carpet','Clay', 'Hard', 'Grass', 'None') had relatively lesser influence, all falling in the broad swath of relatively equally influential coefficients.
+The most important features are shown toward the left side of Figure 5. In Logistic Regression, the single-most important features is the rank_points (a measure of the player's relative rank). This matches findings from previous works (Kovalchik, 2016). Additionally, other important variables were based on winning points, either as a measure of consistency (1stWon, 2ndWon) or performance in high-value situations (bpSaved). Unexpectedly, the surface ('Carpet', 'Clay', 'Hard', 'Grass', 'None') had relatively lesser influence, all falling in the broad swath of relatively equally influential coefficients.
 
 <p align="center"> 
 <img src="images/logistic_reg_coeff_plot.jpg" height=80%, width=80%, alt="Feature Importance for Logistic Regression"><br> <b>Figure 5:</b> Logistic Regression Coefficients For Normalized Model Features
 </p>
 
 
-Figure 6 shows the feature importance from the Random Forest model. Again, the most important feature is rank_points. One interesting factor that appear important for the Random Forest model is the Tournament Level.  The values 'F', 'M', and 'A' are high in importance and refer to more prestigious tournaments (especially 'F', but also 'M') or the least prestigious tournaments ('A'). It appears that the type of tournaments a player participates in has predictive value. Another way that the Random Forest model validates the Logistic Regression coefficients is that the playing surface is relatively less important. The instances of surface ('Carpet','Clay', 'Hard', 'Grass', 'None') appear toward the tail end (right side of Figure 6) of the feature importance parameters.
+Figure 6 shows the feature importance from the Random Forest model. Again, the most important feature is rank_points. One interesting factor that appear important for the Random Forest model is the Tournament Level.  The values 'F', 'M', and 'A' are high in importance and refer to more prestigious tournaments (especially 'F', but also 'M') or the least prestigious tournaments ('A'). It appears that the type of tournaments a player participates in has predictive value. Another way that the Random Forest model validates the Logistic Regression coefficients is that the playing surface is relatively less important. The instances of surface ('Carpet', 'Clay', 'Hard', 'Grass', 'None') appear toward the tail end (right side of Figure 6) of the feature importance parameters.
 
 <p align="center"> 
 <img src="images/random_forest_feature_imp_plot.jpg" height=80%, width=80%, alt="Expunge Extra Data" ><br> <b>Figure 6:</b> Feature Importance from Random Forest Model
