@@ -102,9 +102,11 @@ It is interesting that all three models considered here yielded very similar acc
 
 One can gather insights about what features are more predictive for the outcome of a match from the models used. Here, only the Logistic Regression and Random Forest are considered since all models resulted in very similar value of accuracy.
 
-Figure 5 shows the normalized values of the Logistic Regression coefficients.  The normalization occurs in two steps.
+Figure 5 shows the normalized values of the Logistic Regression coefficients.  The normalization occurs in two steps:
+<br>
 * First, the features are scaled before applying the Logistic Regression
-* Second, the resultant coefficients are normalized to the coefficient with the largest magnitude. <br><br>
+* Second, the resultant coefficients are normalized to the coefficient with the largest magnitude. 
+</br>
 The most important features are shown toward the left side of Figure 5. In Logistic Regression, the single-most important features is the rank_points (a measure of the player's relative rank). This matches findings from previous works (Kovalchik, 2016). Additionally, other important variables were based on winning points, either as a measure of consistency (1stWon, 2ndWon) or performance in high-value situations (bpSaved). Unexpectedly, the surface ('Carpet', 'Clay', 'Hard', 'Grass', 'None') had relatively lesser influence, all falling in the broad swath of relatively equally influential coefficients.
 
 <p align="center"> 
