@@ -108,14 +108,14 @@ Figure 5 shows the normalized values of the Logistic Regression coefficients.  T
 The most important features are shown toward the left side of Figure 5. In Logistic Regression, the single-most important features is the rank_points (a measure of the player's relative rank). This matches findings from previous works (Kovalchik, 2016). Additionally, other important variables were based on winning points, either as a measure of consistency (1stWon, 2ndWon) or performance in high-value situations (bpSaved). Unexpectedly, the surface ('Carpet', 'Clay', 'Hard', 'Grass', 'None') had relatively lesser influence, all falling in the broad swath of relatively equally influential coefficients.
 
 <p align="center"> 
-<img src="images/logistic_reg_coeff_plot.jpg" height=80%, width=80%, alt="Feature Importance for Logistic Regression"><br> <b>Figure 5:</b> Logistic Regression Coefficients For Normalized Model Features
+<img src="images/logistic_reg_coeff_plot.jpg" height=70%, width=70%, alt="Feature Importance for Logistic Regression"><br> <b>Figure 5:</b> Logistic Regression Coefficients For Normalized Model Features
 </p>
 
 
 Figure 6 shows the feature importance from the Random Forest model. Again, the most important feature is rank_points. One interesting factor that appear important for the Random Forest model is the Tournament Level.  The values 'F', 'M', and 'A' are high in importance and refer to more prestigious tournaments (especially 'F', but also 'M') or the least prestigious tournaments ('A'). It appears that the type of tournaments a player participates in has predictive value. Another way that the Random Forest model validates the Logistic Regression coefficients is that the playing surface is relatively less important. The instances of surface ('Carpet', 'Clay', 'Hard', 'Grass', 'None') appear toward the tail end (right side of Figure 6) of the feature importance parameters.
 
 <p align="center"> 
-<img src="images/random_forest_feature_imp_plot.jpg" height=80%, width=80%, alt="Expunge Extra Data" ><br> <b>Figure 6:</b> Feature Importance from Random Forest Model
+<img src="images/random_forest_feature_imp_plot.jpg" height=70%, width=70%, alt="Expunge Extra Data" ><br> <b>Figure 6:</b> Feature Importance from Random Forest Model
 </p>
 
 
@@ -127,7 +127,7 @@ Several avenues for further investigation exist:
 	* First, gather player statistics (such as aces, service speed, service efficiency, return efficiency, 1st serve percentage, etc.) 
 	* Next, applying clustering to these features to get ~5 groups of player styles.
 	* Finally, include the cluster a player belongs to as a feature in the original dataset  
-3. Distributing the statistics over the surfaces (eg. aces on grass) because I want to explore further if surface is a major predictor.
+3. Distributing the statistics over the surfaces (e.g. aces on grass) because I want to explore further if surface is a major predictor.
 
 
 # Reference Cited :
