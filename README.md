@@ -131,7 +131,7 @@ Several avenues for further investigation exist:
 3. Distributing the statistics over the surfaces (e.g. aces on grass) because I want to explore further if surface is a major predictor.
 
 
-# Reference Cited :
+# Reference Cited
 Kovalchik, Stephanie Ann. ["Searching for the GOAT of tennis win prediction"](http://vuir.vu.edu.au/34652/1/jqas-2015-0059.pdf) _Journal of Quantitative Analysis in Sports_. 12(3): 127–138 (2016).<br>
 Wikipedia contributors, ["Elo rating system"](https://en.wikipedia.org/wiki/Elo_rating_system) _Wikipedia, The Free Encyclopedia_. https://en.wikipedia.org/w/index.php?title=Elo_rating_system&oldid=856785064 (accessed 15 Aug 2018).<br>
 Sackmann, Jeff. [tennis_atp Repository](https://github.com/JeffSackmann/tennis_atp) _GitHub, Inc_. https://github.com/JeffSackmann/tennis_atp (accessed 6 Aug 2018).
